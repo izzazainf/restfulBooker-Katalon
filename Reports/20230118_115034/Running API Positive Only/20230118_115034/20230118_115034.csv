@@ -1,0 +1,20 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+Running API Positive Only,,,,2023-01-18 11:50:36,2023-01-18 11:50:44,7.582s,FAILED
+,,,,,,,
+Test Cases/001_Auth,,,,2023-01-18 11:50:36,2023-01-18 11:50:40,4.011s,PASSED
+"out = sendRequest(findTestObject(""auth""))",,,,2023-01-18 11:50:36,2023-01-18 11:50:40,3.711s,PASSED
+"verifyResponseStatusCode(out, 200)",,,,2023-01-18 11:50:40,2023-01-18 11:50:40,0.012s,PASSED
+,,,,,,,
+Test Cases/002_Create Booking,,,,2023-01-18 11:50:40,2023-01-18 11:50:42,1.685s,PASSED
+"out = sendRequest(findTestObject(""POST_booking""))",,,,2023-01-18 11:50:40,2023-01-18 11:50:42,1.283s,PASSED
+"verifyResponseStatusCode(out, 200)",,,,2023-01-18 11:50:42,2023-01-18 11:50:42,0.003s,PASSED
+"verifyElementPropertyValue(out, ""booking.firstname"", ""Jim"")",,,,2023-01-18 11:50:42,2023-01-18 11:50:42,0.050s,PASSED
+slurper = new groovy.json.JsonSlurper(),,,,2023-01-18 11:50:42,2023-01-18 11:50:42,0.001s,PASSED
+result = slurper.parseText(out.getResponseBodyContent()),,,,2023-01-18 11:50:42,2023-01-18 11:50:42,0.008s,PASSED
+value = bookingid,,,,2023-01-18 11:50:42,2023-01-18 11:50:42,0.001s,PASSED
+bookingID = value,,,,2023-01-18 11:50:42,2023-01-18 11:50:42,0.113s,PASSED
+println(value),,,,2023-01-18 11:50:42,2023-01-18 11:50:42,0.003s,PASSED
+,,,,,,,
+Test Cases/003_Update Booking,,,,2023-01-18 11:50:42,2023-01-18 11:50:44,1.643s,FAILED
+"out = sendRequest(findTestObject(""PUT_booking""))",,,,2023-01-18 11:50:42,2023-01-18 11:50:43,1.375s,PASSED
+"verifyResponseStatusCode(out, 200)",,,,2023-01-18 11:50:43,2023-01-18 11:50:44,0.037s,FAILED

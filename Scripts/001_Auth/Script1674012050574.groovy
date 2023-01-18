@@ -21,3 +21,11 @@ out = WS.sendRequest(findTestObject('auth'))
 
 WS.verifyResponseStatusCode(out, 200)
 
+def slurper = new groovy.json.JsonSlurper()
+def result = slurper.parseText(out.getResponseBodyContent())
+
+def value= result.token
+
+GlobalVariable.token = value
+
+println(value)

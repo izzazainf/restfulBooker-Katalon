@@ -16,6 +16,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
+import groovy.json.JsonSlurper
 
 out = WS.sendRequest(findTestObject('POST_booking'))
 
@@ -23,3 +24,12 @@ WS.verifyResponseStatusCode(out, 200)
 
 WS.verifyElementPropertyValue(out, 'booking.firstname', 'Jim')
 
+
+def slurper = new groovy.json.JsonSlurper()
+def result = slurper.parseText(out.getResponseBodyContent())
+
+def value= result.bookingid
+
+GlobalVariable.bookingID = value
+
+println(value)

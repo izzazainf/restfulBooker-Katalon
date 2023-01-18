@@ -36,7 +36,7 @@
       <matchCondition>equals</matchCondition>
       <name>Cookie</name>
       <type>Main</type>
-      <value>token=11eb90f4adafa09</value>
+      <value>token=${token}</value>
       <webElementGuid>bf4704ca-cd6e-4c57-84ce-125bff8c9a3c</webElementGuid>
    </httpHeaderProperties>
    <katalonVersion>8.5.2</katalonVersion>
@@ -53,11 +53,18 @@
    <socketTimeout>-1</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
    <variables>
-      <defaultValue>'2870'</defaultValue>
+      <defaultValue>GlobalVariable.bookingID</defaultValue>
       <description></description>
       <id>b3acdbdb-e61b-4644-80ab-3af494a7aa71</id>
       <masked>false</masked>
       <name>bookingID</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.token</defaultValue>
+      <description></description>
+      <id>907c9724-3316-4cbf-901e-bc3f0ac27f20</id>
+      <masked>false</masked>
+      <name>token</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
